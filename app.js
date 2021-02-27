@@ -9,9 +9,9 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) {
-  let sumResult = a+b;
-  return [sumResult,`The sum of ${a} and ${b} is ${sumResult}.`]
-  
+  let sumResult = a + b;
+  return [sumResult, `The sum of ${a} and ${b} is ${sumResult}.`]
+
   //eslint-disable-line
 }
 
@@ -31,12 +31,12 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiply(a, b) {
   let output = a * b;
-  return[output,`The product of ${a} and ${b} is ${output}.`]
+  return [output, `The product of ${a} and ${b} is ${output}.`]
   //eslint-disable-line
 }
 
 // Here is the test for multiply(); uncomment it to run it
-testMultiply(5,9);
+testMultiply(5, 9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -54,15 +54,15 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function sumAndMultiply(a, b, c) {
   //eslint-disable-line
-  let sum1 = (sum(a,b)[0]);
-  let totalSum = (sum(sum1,c)[0]);
-  let mult1 = (multiply(a,b)[0]);
-  let totalMult = (multiply(mult1,c)[0]);
- return [totalSum,totalMult,`${a} and ${b} and ${c} sum to ${totalSum}.`, `The product of ${a} and ${b} and ${c} is ${totalMult}.`]
+  let sum1 = (sum(a, b)[0]);
+  let totalSum = (sum(sum1, c)[0]);
+  let mult1 = (multiply(a, b)[0]);
+  let totalMult = (multiply(mult1, c)[0]);
+  return [totalSum, totalMult, `${a} and ${b} and ${c} sum to ${totalSum}.`, `The product of ${a} and ${b} and ${c} is ${totalMult}.`]
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-testSumAndMultiply(4,7,5);
+testSumAndMultiply(4, 7, 5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -81,9 +81,11 @@ let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) {
   //eslint-disable-line
-  let sumA = sum(testArray[0],testArray[1])[0];
-  let wholeSum = sum (sumA,(testArray[2]))[0];
-  return [wholeSum,`${testArray[0]},${testArray[1]},${testArray[2]} was passed in as an array of numbers, and ${wholeSum} is their sum.`]
+  let sumA = 0;
+  for (let i = 0; i < testArray.length; i++) {
+    sumA += sum(testArray[i], 0)[0];
+  }
+  return [sumA, `${testArray[testArray.length-3]},${testArray[testArray.length-2]},${testArray[testArray.length-1]} was passed in as an array of numbers, and ${sumA} is their sum.`]
 }
 
 // Here is the test for sumArray(); uncomment it to run it
